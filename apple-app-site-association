@@ -14,6 +14,10 @@
             {
                 "appID": "CVW8B7M688.th.co.kidrock.DailyMoney",
                 "paths": [ "*"]
+            },
+            {
+                "appID": "CVW8B7M688.th.co.ais.mimo.urlscheme",
+                "paths": [ "*"]
             }
         ]
     }
