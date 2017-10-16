@@ -1,0 +1,20 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "AH6D9D8SZM.com.ais.mimo.eservice",
+                "paths": [ "*"]
+            },
+            {
+                "appID": "AH6D9D8SZM.com.ais.mimo.callingmelody",
+                "paths": [ "*"]
+            }
+            ,
+            {
+                "appID": "CVW8B7M688.th.co.kidrock.DailyMoney",
+                "paths": [ "*"]
+            }
+        ]
+    }
+}
