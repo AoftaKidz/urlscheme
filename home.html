@@ -49,20 +49,22 @@
 		return "myais://Live360?params="+params
 	}
 	
-    window.onload = function () {
-    
-    	showBrowserDetail()
-    
-        var scheme = getSchemeURL("1234567890")
-        var decodeUri = decodeURIComponent(schema)
-        var btnOpenScheme = document.getElementById("btnOpenScheme")
-        btnOpenScheme.href = scheme
-        window.location.href = scheme
-    }
+  //   window.onload = function () {
+//     
+//     	showBrowserDetail()
+//     
+//         var scheme = getSchemeURL("1234567890")
+//         var decodeUri = decodeURIComponent(schema)
+//         var btnOpenScheme = document.getElementById("btnOpenScheme")
+//         btnOpenScheme.href = scheme
+//         window.location.href = scheme
+//     }
 
     </script>
 </head>
-<body>   
+
+<body onload="getSchemeURL('1234567')">
+ 
 <a id='btnOpenScheme' href="myais://Live360">myais://</a> 
 <p id="browserDetail"></p>
 
