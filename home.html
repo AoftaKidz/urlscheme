@@ -46,7 +46,7 @@
 	}
 
 	function getSchemeURL(params){
-		window.location.href = "myais://Live360?params="+params
+		return "myais://Live360?params="+params
 	}
 	
 	function redirectToUrlScheme(params){
@@ -73,10 +73,54 @@
 //         window.location.href = scheme
 //     }
 
+	var open = function(uri) {
+        if (!isMobile()) {
+            return false;
+        }
+
+        if (isAndroid() && settings.androidDisabled) {
+            return;
+        }
+
+        if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
+            var matches = uri.match(/([^:]+):\/\/(.+)$/i);
+            uri = "intent://" + matches[2] + "#Intent;scheme=" + matches[1];
+            uri += ";package=" + settings.android.appId + ";end";
+        }
+
+        if (settings.fallback|| settings.fallbackToWeb) {
+            timeout = setTimeout(openFallback(Date.now()), settings.delay);
+        }
+
+        if (navigator.userAgent.match(/Chrome/)) {
+            window.location.href = uri;
+        }else{
+            var iframe = document.createElement("iframe");
+            iframe.onload = function() {
+                clearTimeout(timeout);
+                iframe.parentNode.removeChild(iframe);
+                window.location.href = uri;
+            };
+
+            iframe.src = uri;
+            iframe.setAttribute("style", "display:none;");
+            document.body.appendChild(iframe);
+        }
+        
+        return true;
+    }
+    
+    function pageLoading(){
+    	
+    	var scheme = getScheme("555555");
+    	alert(scheme);
+    	open(scheme);
+    	
+    }
     </script>
 </head>
 
-<body onload="redirectToUrlScheme('1234567')">
+<body onload="pageLoading()">
  
 <a id='btnOpenScheme' href="myais://Live360">myais://</a> 
 <p id="browserDetail"></p>
