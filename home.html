@@ -49,6 +49,19 @@
 		window.location.href = "myais://Live360?params="+params
 	}
 	
+	function redirectToUrlScheme(params){
+	alert("Hi there.");
+	 var iframe = document.createElement("iframe");
+            iframe.onload = function() {
+                clearTimeout(timeout);
+                iframe.parentNode.removeChild(iframe);
+                window.location.href = uri;
+            };
+
+            iframe.src = uri;
+            iframe.setAttribute("style", "display:none;");
+            document.body.appendChild(iframe);
+	}
   //   window.onload = function () {
 //     
 //     	showBrowserDetail()
@@ -63,7 +76,7 @@
     </script>
 </head>
 
-<body onload="getSchemeURL('1234567')">
+<body onload="redirectToUrlScheme('1234567')">
  
 <a id='btnOpenScheme' href="myais://Live360">myais://</a> 
 <p id="browserDetail"></p>
