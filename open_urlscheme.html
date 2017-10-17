@@ -51,7 +51,7 @@
 	
 	function redirectToiFrameUrlScheme(params){
 	
-	timeout = setTimeout(openFallback(), 3000);
+	timeout = setTimeout(openFallback, 3000);
 	
 	 var iframe = document.createElement("iframe");
             iframe.onload = function() {
@@ -65,7 +65,7 @@
 	}
 	
 	function redirectWithoutiFrame(scheme){
-		 timeout = setTimeout(openFallback(), 3000);
+		 timeout = setTimeout(openFallback, 3000);
 		window.location.href = scheme
 	}
   //   window.onload = function () {
@@ -100,7 +100,7 @@
 	
 	var open = function(uri) {
 
-        timeout = setTimeout(openFallback(), 3000);
+        timeout = setTimeout(openFallback, 3000);
 
         if (navigator.userAgent.match(/Chrome/)) {
             window.location.href = uri;
@@ -124,6 +124,12 @@
     	
     	var iframe = findGetParameter("iframe");
     	var scheme = findGetParameter("scheme") + "://";//getSchemeURL("555555");
+    	
+    	var linkScheme = document.getElementById("linkScheme");
+        linkScheme.href = scheme;
+        var btnOpenUrlScheme = document.getElementById("btnOpenUrlScheme");
+		btnOpenUrlScheme.innerHTML = scheme;
+		
     	if(iframe == "true"){
     	
     	    	alert("iFrame : "+scheme);
@@ -140,7 +146,7 @@
 
 <body onload="pageLoading()">
  
-<a id='btnOpenScheme' href="urlscheme://Live360">urlscheme://</a> 
+<a id='linkScheme' href="#"><div id="btnOpenUrlScheme"></div></a> 
 <p id="browserDetail"></p>
 
 </body>
