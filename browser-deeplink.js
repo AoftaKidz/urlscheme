@@ -226,8 +226,9 @@
         }
 
         if (isAndroid() && !navigator.userAgent.match(/Firefox/) && !navigator.userAgent.match(/WebView/) ) {
-            var matches = uri.match(/([^:]+):\/\/(.+)$/i);
-            uri = "intent://" + matches[2] + "#Intent;scheme=" + matches[1];
+//             var matches = uri.match(/([^:]+):\/\/(.+)$/i);
+            var matches = uri.match(/([^:]+)/i);
+            uri = "intent://" + matches[0] + "#Intent;scheme=" + matches[0];
             uri += ";package=" + settings.android.appId;
             uri += ";S.browser_fallback_url=" + settings.fallbackWebUrl + ";end";
         }
@@ -264,10 +265,16 @@
         }
         else {
             if (isAndroid() && !navigator.userAgent.match(/Firefox/) && !navigator.userAgent.match(/WebView/) ) {
-                var matches = uri.match(/([^:]+):\/\/(.+)$/i);
-                uri = "intent://" + matches[2] + "#Intent;scheme=" + matches[1];
+//                 var matches = uri.match(/([^:]+):\/\/(.+)$/i);
+                var matches = uri.match(/([^:]+)/i);
+                uri = "intent://" + matches[0] + "#Intent;scheme=" + matches[0];
                 uri += ";package=" + settings.android.appId;
                 uri += ";S.browser_fallback_url=" + settings.fallbackWebUrl + ";end";
+                
+                
+                
+                var intent  ="intent://"+"/#Intent;scheme=zxing;package=com.google.zxing.client.android;S.browser_fallback_url=http%3A%2F%2Fzxing.org;end";
+
             }
 
             if (settings.fallback|| settings.fallbackToWeb) {
@@ -286,8 +293,9 @@
 
     var getLink = function(uri) {
     	if (isAndroid() && !navigator.userAgent.match(/Firefox/) && !navigator.userAgent.match(/WebView/)) {
-            var matches = uri.match(/([^:]+):\/\/(.+)$/i);
-            uri = "intent://" + matches[2] + "#Intent;scheme=" + matches[1];
+//             var matches = uri.match(/([^:]+):\/\/(.+)$/i);
+            var matches = uri.match(/([^:]+)/i);
+            uri = "intent://" + matches[0] + "#Intent;scheme=" + matches[0];
             uri += ";package=" + settings.android.appId;
             uri += ";S.browser_fallback_url=" + settings.fallbackWebUrl + ";end";
         }
