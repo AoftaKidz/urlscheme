@@ -234,23 +234,13 @@
 
         if (settings.fallback|| settings.fallbackToWeb) {
             //console.log("getWebLink settings.fallbackWebUrl "+settings.fallbackWebUrl);
-           timeout = setTimeout(// openFallback(Date.now()), settings.delay);
+           timeout = setTimeout(openFallback(Date.now()), settings.delay);
         }
 
         if (navigator.userAgent.match(/Chrome/)) {
             window.location.href = uri;
         }else{
         	window.location.href = uri;
-//            var iframe = document.createElement("iframe");
-//            iframe.onload = function() {
-//                clearTimeout(timeout);
-//                iframe.parentNode.removeChild(iframe);
-//                window.location.href = uri;
-//            };
-//
-//            iframe.src = uri;
-//            iframe.setAttribute("style", "display:none;");
-//            document.body.appendChild(iframe);
         }
         
         return true;
@@ -288,16 +278,6 @@
                 window.location.href = uri;
             }else{
             	window.location.href = uri;
-               //  var iframe = document.createElement("iframe");
-//                 iframe.onload = function() {
-//                     clearTimeout(timeout);
-//                     iframe.parentNode.removeChild(iframe);
-//                     window.location.href = uri;
-//                 };
-// 
-//                 iframe.src = uri;
-//                 iframe.setAttribute("style", "display:none;");
-//                 document.body.appendChild(iframe);
             }
         }
         
