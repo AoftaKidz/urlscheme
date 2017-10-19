@@ -4,13 +4,13 @@
 <script>
 function validateForm() {
     var urlscheme = document.forms["myForm"]["scheme"].value;
-    var isiFrame = document.forms["myForm"]["iframe"].checked;
+//     var isiFrame = document.forms["myForm"]["iframe"].checked;
     
-    if (isiFrame){
-    	document.forms["myForm"]["iframe"].value = "true"
-    }else{
-    	document.forms["myForm"]["iframe"].value = "false"
-    }
+//     if (isiFrame){
+//     	document.forms["myForm"]["iframe"].value = "true"
+//     }else{
+//     	document.forms["myForm"]["iframe"].value = "false"
+//     }
     
     if (urlscheme == "") {
         alert("ไม่ใส่ url scheme มันจะไปมั้ยล่ะ.");
@@ -27,6 +27,10 @@ function validateForm() {
 <form name="myForm" action="open_urlscheme.html"
 onsubmit="return validateForm()" method="get">
 URL Scheme: <input type="text" name="scheme"><br>
+Android Package: <input type="text" name="package"><br>
+
+Fallback URL: <input type="text" name="fallbackurl" value="https://ais.co.th/"><br>
+
 iFrame : <input type="checkbox" name="iframe" value="false"><br>
 
 
